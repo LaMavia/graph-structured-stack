@@ -95,7 +95,7 @@ flowchart RL
 ```mermaid
 flowchart RL
   7-->3-->1-->0
-```
+``` 
 
 </div>
 </div>
@@ -103,6 +103,31 @@ flowchart RL
 Because new elements can extend any stack, it is necessary to supply the head node of the stack you want extend when pushing. When no head is provided, a new stack is created. For instance, let us implement the above GSS:
 
 ```ts
+import { GSStack, GSSNode } from 'gs-stack'
+ 
+const stack = new GSStack<number>()
+const nodes: Record<number, GSSNode<number>> = {}
 
+// {7,3,1,0}
+nodes[0] = stack.push(0)
+nodes[1] = stack.push(1, nodes[0])
+nodes[3] = stack.push(3, nodes[1])
+nodes[7] = stack.push(7, nodes[3])
 
+// {7,4,1,0}
+nodes[4] = stack.push(4, nodes[1])
+nodes[7] = stack.push(7, nodes[4]) // 7 isn't duplicated, as it ends up in the same layer
+
+// {7,5,2,0}
+nodes[2] = stack.push(2, nodes[0])
+nodes[5] = stack.push(5, nodes[2])
+nodes[7] = stack.push(7, nodes[5])
+
+// {8,6,2,0}
+nodes[6] = stack.push(6, nodes[2])
+nodes[8] = stack.push(8, nodes[6])
 ```
+
+The constructor of `GSStack` takes an optional `comparator: (a: T, b: T) => boolean` function, which returns `true` iff the two objects are considered "the same". By default, it is set to `===`. 
+
+When an item is pushed to a layer, it's checked whether a node with the same value already exists in there. If it does, `push` returns a reference to said node with updated previous nodes; if it doesn't, a new node is created instead.
