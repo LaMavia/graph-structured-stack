@@ -23,6 +23,7 @@ jobs:
       - name: Deploy docs
         run: |
           git checkout gh-pages
+          git fetch
           cd src
           bun i
           bun run build
