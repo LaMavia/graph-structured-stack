@@ -8,7 +8,7 @@ export class GSStack<T> {
 
   constructor(comparator: Comparator<T> = DEFAULT_COMPARATOR) {
     this.comparator = comparator
-    this.levels = [new GSSLevel(0)]
+    this.levels = []
   }
 
   /**
@@ -43,15 +43,21 @@ export class GSStack<T> {
    * @param node Node to remove.
    */
   pop(node: GSSNode<T>): boolean {
-    if (
-      this.levels.length > node.level + 1 &&
-      node.degNext() > 0 &&
-      node.hasHigherLevelNext()
-    ) {
+    if (node.hasHigherLevelNext()) {
       return false
     }
 
     this.levels[node.level].remove(node)
+    const isLevelEmpty = this.levels[node.level].length() === 0
+    const isLastLevel = this.levels.length === node.level + 1
+
+    if (isLastLevel && isLevelEmpty) {
+      this.levels.pop()
+    }
     return true
+  }
+
+  empty(): boolean {
+    return this.levels.length === 0
   }
 }

@@ -1,6 +1,6 @@
 export class GSSNode<T> {
-  private prev: Record<number, GSSNode<T>> = {}
-  private next: Record<number, GSSNode<T>> = {}
+  prev: Record<number, GSSNode<T>> = {}
+  next: Record<number, GSSNode<T>> = {}
   private prevLength = 0
   private nextLength = 0
 

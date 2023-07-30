@@ -3,6 +3,7 @@ import { GSSNode } from './GSSNode'
 
 export class GSSLevel<T> {
   iota = 0
+  private numberOfNodes = 0
   nodes: Record<number, GSSNode<T>> = {}
 
   constructor(public number: number) {}
@@ -29,6 +30,7 @@ export class GSSLevel<T> {
     if (node === undefined) {
       node = new GSSNode(this.number, value, ++this.iota)
       this.nodes[node.id] = node
+      this.numberOfNodes++
     }
 
     return node
@@ -36,14 +38,12 @@ export class GSSLevel<T> {
 
   // O(1)
   remove(node: GSSNode<T>): void {
-    // node.prev.forEach(prevNode =>
-    //   prevNode.next.splice(
-    //     prevNode.next.findIndex(otherNode => otherNode === node),
-    //     1,
-    //   ),
-    // )
-
     this.nodes[node.id].delete()
+    this.numberOfNodes--
     delete this.nodes[node.id]
+  }
+
+  length(): number {
+    return this.numberOfNodes
   }
 }

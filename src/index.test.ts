@@ -1,6 +1,7 @@
-import { describe, it, expect } from '@jest/globals'
+import { describe, it, expect, beforeAll, beforeEach } from '@jest/globals'
 import { GSStack } from '.'
 import { DEFAULT_COMPARATOR } from './types/Comparator'
+import { GSSNode } from './classes/GSSNode'
 
 describe('GSStack: constructor', () => {
   it('succeeds without a comparator', () => {
@@ -11,8 +12,8 @@ describe('GSStack: constructor', () => {
     expect(new GSStack().comparator).toEqual(DEFAULT_COMPARATOR)
   })
 
-  it('pushes a default layer', () => {
-    expect(new GSStack().levels.length).toBe(1)
+  it('starts with no layers', () => {
+    expect(new GSStack().levels.length).toBe(0)
   })
 })
 
@@ -55,5 +56,51 @@ describe('GSStack: pop', () => {
     expect(stack.pop(prevNode)).toBe(false)
     expect(nextNode.degPrev()).toBe(1)
     expect(prevNode.degNext()).toBe(1)
+  })
+})
+
+describe('GSStack: integration', () => {
+  let stack: GSStack<number>
+
+  beforeEach(() => {
+    stack = new GSStack()
+  })
+
+  it('mimics a stack: pushing', () => {
+    const N = 500
+    const native: number[] = []
+    let prev: GSSNode<number> | undefined
+
+    for (const value of new Array(N).fill(0).map((_, i) => i)) {
+      prev = stack.push(value, prev)
+      native.push(value)
+
+      expect(native[native.length - 1]).toEqual(value)
+      expect(prev.value).toEqual(value)
+    }
+  })
+
+  it('mimics a stack: push, and remove', () => {
+    const N = 5
+    const values = new Array(N).fill(0).map((_, i) => i)
+    const native: number[] = []
+    let prev: GSSNode<number> | undefined
+
+    for (const value of values) {
+      prev = stack.push(value, prev)
+      native.push(value)
+    }
+
+    while (!stack.empty() && native.length > 0) {
+      const value = native.pop()
+      const nextPrev = Object.values(prev?.prev ?? {})[0]
+      stack.pop(prev!)
+
+      expect(prev?.value).toEqual(value)
+      prev = nextPrev
+    }
+
+    expect(stack.empty()).toBe(true)
+    expect(native.length).toBe(0)
   })
 })
