@@ -32,5 +32,4 @@ jobs:
           git config pull.rebase false
           git config --global user.email "ts438730@students.mimuw.edu.pl"
           git config --global user.name "Zuzanna Surowiec"
-          git commit -am "build docs" --allow-empty
-          git push -f
+          git checkout --progress --force -B main refs/remotes/origin/main
