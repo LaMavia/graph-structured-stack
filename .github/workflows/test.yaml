@@ -12,7 +12,7 @@ jobs:
       - name: Install
         run: bun install
       - name: Test and Coverage
-        run: bun test:coverage
+        run: bun test:coverage 
 
       - name: Update Coverage Badge
         # GitHub actions: default branch variable
@@ -25,7 +25,7 @@ jobs:
           git checkout gh-pages
           cd src
           bun i
-          bun build
+          bun run build
           cd ..
           git add -A
           git commit -m "build docs"
