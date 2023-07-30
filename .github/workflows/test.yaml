@@ -21,7 +21,7 @@ jobs:
         uses: we-cli/coverage-badge-action@main
       
       - name: Deploy docs
-        run: >
+        run: |
           git checkout gh-pages
           cd src
           bun i
