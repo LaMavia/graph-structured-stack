@@ -25,6 +25,7 @@ jobs:
         shell: bash
         run: |
           git checkout gh-pages
+          git fetch
           cd src
           bun i
           bun run build
