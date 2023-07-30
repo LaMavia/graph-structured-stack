@@ -1,9 +1,33 @@
 {
   "name": "gs-stack",
   "module": "src/index.ts",
+  "description": "A graph-structured stack (GSS) implementation in typescript.",
+  "keywords": [
+    "collection",
+    "collections",
+    "data structure",
+    "stack",
+    "graph",
+    "graph-structured stack",
+    "gss",
+    "typescript"
+  ],
+  "homepage": "https://lamavia.github.io/graph-structured-stack/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LaMavia/graph-structured-stack"
+  },
+  "files": ["./dist/"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "devDependencies": {
     "@jest/globals": "^29.6.2",
     "@types/jest": "^29.5.3",
+    "bun-plugin-dts": "^0.1.0",
     "bun-types": "latest",
     "c8": "^8.0.1",
     "jest": "^29.6.2",
@@ -15,7 +39,8 @@
     "test": "jest ./src",
     "test:watch": "jest --watch ./src",
     "test:coverage": "c8 --config c8rc.json bun run test",
-    "prettier": "prettier -w src/**/*"
+    "prettier": "prettier -w src/**/*",
+    "build": "bun run ./scripts/build.ts"
   },
   "type": "module"
 }
