@@ -30,8 +30,7 @@ jobs:
           cd ..
 
           git config pull.rebase false
-          git config --global user.email "bot@gs-stack.com"
-          git config --global user.name "Bot"
-          git add -A
-          git commit -m "build docs"
-          git push -f -u origin gh-pages
+          git config --global user.email "ts438730@students.mimuw.edu.pl"
+          git config --global user.name "Zuzanna Surowiec"
+          git commit -am "build docs" --allow-empty
+          git push -f
