@@ -1,7 +1,7 @@
 import { describe, it, expect } from '@jest/globals'
 import { DEFAULT_COMPARATOR } from '../types/Comparator'
 import { GSSLevel } from './GSSLevel'
-import { GSSNode } from './GSSNode'
+import { _GSSNode } from './GSSNode'
 
 describe('GSSLevel: constructor', () => {
   const EMPTY_RECORD = {}

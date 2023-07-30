@@ -1,6 +1,13 @@
-export class GSSNode<T> {
-  prev: Record<number, GSSNode<T>> = {}
-  next: Record<number, GSSNode<T>> = {}
+export interface GSSNode<T> {
+  value: T
+  prevSet(): GSSNode<T>[]
+  degPrev(): number
+  degNext(): number
+} 
+
+export class _GSSNode<T> implements GSSNode<T> {
+  prev: Record<number, _GSSNode<T>> = {}
+  next: Record<number, _GSSNode<T>> = {}
   private prevLength = 0
   private nextLength = 0
 
@@ -10,7 +17,7 @@ export class GSSNode<T> {
     public readonly id: number,
   ) {}
 
-  addPrev(node: GSSNode<T>): void {
+  addPrev(node: _GSSNode<T>): void {
     if (node.id in this.prev) {
       return
     }
@@ -20,7 +27,7 @@ export class GSSNode<T> {
     node.addNext(this)
   }
 
-  addNext(node: GSSNode<T>): void {
+  addNext(node: _GSSNode<T>): void {
     if (node.id in this.next) {
       return
     }
@@ -30,7 +37,7 @@ export class GSSNode<T> {
     node.addPrev(this)
   }
 
-  removePrev(node: GSSNode<T>): void {
+  private removePrev(node: _GSSNode<T>): void {
     if (!(node.id in this.prev)) {
       return
     }
@@ -40,7 +47,7 @@ export class GSSNode<T> {
     node.removeNext(this)
   }
 
-  removeNext(node: GSSNode<T>): void {
+  private removeNext(node: _GSSNode<T>): void {
     if (!(node.id in this.next)) {
       return
     }
@@ -76,5 +83,9 @@ export class GSSNode<T> {
     }
 
     return false
+  }
+
+  prevSet(): _GSSNode<T>[] {
+    return Object.values(this.prev)
   }
 }

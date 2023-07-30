@@ -1,5 +1,5 @@
 import { describe, it, expect } from '@jest/globals'
-import { GSSNode } from './GSSNode'
+import { _GSSNode } from './GSSNode'
 import { GSSLevel } from './GSSLevel'
 import { DEFAULT_COMPARATOR } from '../types/Comparator'
 
