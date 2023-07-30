@@ -40,7 +40,8 @@
     "test:watch": "jest --watch ./src",
     "test:coverage": "c8 --config c8rc.json bun run test",
     "prettier": "prettier -w src/**/*",
-    "build": "bun run ./scripts/build.ts"
+    "build": "bun run ./scripts/build.ts",
+    "prepublish": "bun run build"
   },
   "type": "module"
 }
