@@ -1,0 +1,23 @@
+---
+sidebar_position: 2
+---
+
+# GSSNode
+
+A value wrapper representing a stack node.
+
+```ts
+interface GSSNode<T> {
+  value: T
+  // Returns previous nodes of this node.
+  // *WARNING*: once popped, prevSet
+  // returns only empty arrays.
+  prevSet(): GSSNode<T>[]
+  // Returns the number of previous nodes.
+  // *WARNING*: once popped, degPrev returns 0.
+  degPrev(): number
+  // Returns the number of next nodes.
+  // *WARNING*: once popped, degNext returns 0.
+  degNext(): number
+}
+```

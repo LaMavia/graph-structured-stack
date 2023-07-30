@@ -1,58 +1,58 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require('prism-react-renderer/themes/github')
+const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "gs-stack",
-  tagline: "A graph-structured stack.",
-  favicon: "img/favicon.ico",
+  title: 'gs-stack',
+  tagline: 'A graph-structured stack.',
+  favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: "https://lamavia.github.io/",
+  url: 'https://lamavia.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/graph-structured-stack/",
+  baseUrl: '/graph-structured-stack/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "LaMavia", // Usually your GitHub org/user name.
-  projectName: "graph-structured-graph", // Usually your repo name.
+  organizationName: 'LaMavia', // Usually your GitHub org/user name.
+  projectName: 'graph-structured-graph', // Usually your repo name.
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
     [
-      "classic",
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
@@ -64,35 +64,39 @@ const config = {
       // Replace with your project's social card
       // image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "gs-stack",
+        title: 'gs-stack',
         logo: {
-          alt: "gs-stack logo",
-          src: "img/gss-logo.svg",
+          alt: 'gs-stack logo',
+          src: 'img/gss-logo.svg',
         },
         items: [
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
-            position: "left",
-            label: "Tutorial",
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
+            position: 'left',
+            label: 'Get started',
           },
           // { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://github.com/LaMavia/graph-structured-stack",
-            label: "GitHub",
-            position: "right",
+            href: 'https://github.com/LaMavia/graph-structured-stack',
+            label: 'GitHub',
+            position: 'right',
           },
         ],
       },
       footer: {
-        style: "dark",
+        style: 'dark',
         links: [
           {
-            title: "Docs",
+            title: 'Docs',
             items: [
               {
-                label: "Getting started",
-                to: "/docs/getting-started",
+                label: 'Getting started',
+                to: '/docs/getting-started',
+              },
+              {
+                label: 'Reference',
+                to: '/docs/reference',
               },
             ],
           },
@@ -107,7 +111,7 @@ const config = {
   markdown: {
     mermaid: true,
   },
-  themes: ["@docusaurus/theme-mermaid"],
-};
+  themes: ['@docusaurus/theme-mermaid'],
+}
 
-module.exports = config;
+module.exports = config

@@ -1,0 +1,20 @@
+---
+sidebar_position: 1
+---
+
+# GSStack
+
+```ts
+export interface GSStack<T> {
+  // Pushes a potentially new node
+  // with the given value on top of prev.
+  // If prev is undefined, a new stack is created.
+  push(value: T, prev?: GSSNode<T>): GSSNode<T>
+  // Returns true iff `node` is a top node,
+  // meaning it is not a previous node
+  // of any other node.
+  pop(node: GSSNode<T>): boolean
+  // Returns true iff the stack contains no nodes.
+  empty(): boolean
+}
+```
