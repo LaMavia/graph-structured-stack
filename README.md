@@ -1,15 +1,5 @@
 # gs-stack
 
-To install dependencies:
+[![cov](https://LaMavia.github.io/graph-structured-stack/badges/coverage.svg)](https://github.com/LaMavia/graph-structured-stack/actions)
 
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run src/index.ts
-```
-
-This project was created using `bun init` in bun v0.6.0. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+A graph-structured stack implementation in typescript.
