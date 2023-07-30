@@ -14,9 +14,19 @@ jobs:
       - name: Test and Coverage
         run: bun test:coverage
 
-      # Add this
       - name: Update Coverage Badge
         # GitHub actions: default branch variable
         # https://stackoverflow.com/questions/64781462/github-actions-default-branch-variable
         if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         uses: we-cli/coverage-badge-action@main
+      
+      - name: Deploy docs
+        run: >
+          git checkout gh-pages
+          cd src
+          bun i
+          bun build
+          cd ..
+          git add -A
+          git commit -m "build docs"
+          git push
