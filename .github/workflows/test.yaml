@@ -28,8 +28,10 @@ jobs:
           bun run build
           cd ..
 
+          git config pull.rebase false
+          git branch --set-upstream-to=origin gh-pages
           git config --global user.email "bot@gs-stack.com"
           git config --global user.name "Bot"
           git add -A
           git commit -m "build docs"
-          git push
+          git push -f -u origin gh-pages
