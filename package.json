@@ -1,7 +1,7 @@
 {
   "name": "gs-stack",
   "module": "src/index.ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A graph-structured stack (GSS) implementation in typescript.",
   "keywords": [
     "collection",
@@ -18,7 +18,9 @@
     "type": "git",
     "url": "https://github.com/LaMavia/graph-structured-stack"
   },
-  "files": ["./dist/"],
+  "files": [
+    "./dist/"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
