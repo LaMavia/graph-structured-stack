@@ -92,7 +92,7 @@ const config = {
               },
               {
                 label: 'Reference',
-                to: '/docs/reference',
+                to: '/docs/category/reference/',
               },
             ],
           },
