@@ -2,3 +2,4 @@ docs/**/*
 !docs/.gitkeep
 node_modules
 coverage
+dist

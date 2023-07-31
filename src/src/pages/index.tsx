@@ -1,22 +1,22 @@
-import React from "react";
-import clsx from "clsx";
-import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import React from 'react'
+import clsx from 'clsx'
+import Link from '@docusaurus/Link'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import Layout from '@theme/Layout'
+import HomepageFeatures from '@site/src/components/HomepageFeatures'
 
-import styles from "./index.module.css";
+import styles from './index.module.css'
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext()
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles["hero__badges"]}>
+        <div className={styles['hero__badges']}>
           <img
-            src="https://LaMavia.github.io/graph-structured-stack/badges/coverage.svg"
+            src="https://raw.githubusercontent.com/LaMavia/graph-structured-stack/gh-pages/badges/coverage.svg"
             alt="coverage"
           />
         </div>
@@ -30,11 +30,11 @@ function HomepageHeader() {
         </div>
       </div>
     </header>
-  );
+  )
 }
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext()
   return (
     <Layout
       title={`${siteConfig.title}`}
@@ -44,5 +44,5 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       {/* <main><HomepageFeatures /></main> */}
     </Layout>
-  );
+  )
 }

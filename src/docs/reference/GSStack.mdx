@@ -4,8 +4,10 @@ sidebar_position: 1
 
 # GSStack
 
+A graph-structured stack.
+
 ```ts
-export interface GSStack<T> {
+interface GSStack<T> {
   // Pushes a potentially new node
   // with the given value on top of prev.
   // If prev is undefined, a new stack is created.
